@@ -1,15 +1,15 @@
 
 Log 'log'
-	= type:Type _* scope:Scope _* issues:Issues _* tag:Tag title:Title Newline Newline? body:Body
+	= type:Type _* scope:Scope _* issues:Issues _* tag:Tag ':' title:Title Newline Newline? body:Body
     {
     	return {
-        	type,
-            scope,
-            issues,
-            tag,
-            title,
-            body
-        }
+      	type,
+        scope,
+        issues,
+        tag,
+        title,
+        body
+      }
     }
 
 Scope 'scope'
@@ -38,12 +38,10 @@ Issue 'issue'
     }
 
 TypeName 'typeName'
-	= 'fix'
-    / 'test'
-    / 'docs'
-    {
-    	return text()
-    }
+	= [a-z]+
+	  {
+	  	return text()
+	  }
 
 Tag 'tag'
 	= [A-Z]+
