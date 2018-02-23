@@ -1,0 +1,19 @@
+{
+  "name": "commit-log-parser",
+  "version": "1.0.0",
+  "repository": "https://github.com/pentaphobe/commit-log-parser.git",
+  "author": "Keilin Olsen <keilin.olsen@anz.com>",
+  "scripts": {
+    "build": "pegjs --optimize speed -o log-parser.js src/log.pegjs",
+    "build:debug": "pegjs --optimize speed --trace -o log-parser.js src/log.pegjs",
+    "test": "yarn build:debug && mocha \"tests/**/*.test.js\"",
+    "dev": "nodemon --watch src/*.pegjs --watch tests/*.js --exec yarn test"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.1",
+    "nodemon": "^1.15.1",
+    "pegjs": "^0.10.0"
+  }
+}
